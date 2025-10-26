@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Crowd Density Estimation System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="pulse-dot w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                    <h1 class="text-xl font-bold">🎯 Crowd Density AI</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="hover:text-yellow-400 transition duration-300">Overview</a>
+                    <a href="#features" class="hover:text-yellow-400 transition duration-300">Features</a>
+                    <a href="#future" class="hover:text-yellow-400 transition duration-300">Future Enhancements</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="slide-in-left">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                        Real-Time<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Crowd Density</span><br>
+                        Estimation
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-300 leading-relaxed">
+                        Advanced AI system combining YOLO & CSRNet for intelligent crowd monitoring and safety management in real-time
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary">🚀 Launch Demo</button>
+                        <button class="btn-secondary">📄 View Documentation</button>
+                    </div>
+                </div>
+                <div class="slide-in-right">
+                    <div class="floating-animation bg-gradient-to-br from-blue-600 to-purple-700 p-8 rounded-3xl shadow-2xl">
+                        <div class="text-center">
+                            <div class="text-6xl mb-4">📹</div>
+                            <h3 class="text-2xl font-bold mb-4">Live Monitoring</h3>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                    <div class="text-yellow-400 font-bold text-lg">247</div>
+                                    <div>People Detected</div>
+                                </div>
+                                <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                    <div class="text-green-400 font-bold text-lg">85%</div>
+                                    <div>Accuracy Rate</div>
+                                </div>
+                                <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                    <div class="text-blue-400 font-bold text-lg">12.5</div>
+                                    <div>Density/m²</div>
+                                </div>
+                                <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                    <div class="text-red-400 font-bold text-lg">LIVE</div>
+                                    <div>Status</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">System Overview</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive AI solution leveraging cutting-edge computer vision for intelligent crowd analysis
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-gradient-to-br from-blue-900 to-blue-700 p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-300">Objective</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Develop a comprehensive real-time system that monitors live crowd density using multiple camera sources with AI-powered analysis and real-world area calculations.
+                    </p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-purple-900 to-purple-700 p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🔬</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-300">Technology</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Combines YOLO for precise object detection and CSRNet for density estimation with advanced camera calibration using ArUco markers and manual input options.
+                    </p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-green-900 to-green-700 p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">📊</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-300">Dashboard</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Interactive web-based interface displaying live analytics including people count, density metrics, area calculations, and real-time video feeds.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Key Features</span>
+                </h2>
+                <p class="text-xl text-gray-300">Advanced capabilities for comprehensive crowd monitoring</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-gradient-to-br from-green-800 to-green-600 p-6 rounded-xl border-l-4 border-green-400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">Real-time People Counting</h3>
+                    </div>
+                    <p class="text-green-100">YOLO-powered person detection with high accuracy and real-time processing</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-blue-800 to-blue-600 p-6 rounded-xl border-l-4 border-blue-400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">Density Estimation</h3>
+                    </div>
+                    <p class="text-blue-100">CSRNet for accurate crowd density analysis and spatial distribution</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-purple-800 to-purple-600 p-6 rounded-xl border-l-4 border-purple-400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">Auto Scale Detection</h3>
+                    </div>
+                    <p class="text-purple-100">ArUco markers for automatic calibration and real-world measurements</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-yellow-800 to-yellow-600 p-6 rounded-xl border-l-4 border-yellow-400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">Manual Calibration</h3>
+                    </div>
+                    <p class="text-yellow-100">Flexible setup options when automatic markers are unavailable</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-red-800 to-red-600 p-6 rounded-xl border-l-4 border-red-400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">Live Dashboard</h3>
+                    </div>
+                    <p class="text-red-100">Web-based interface with real-time video feeds and analytics</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-indigo-800 to-indigo-600 p-6 rounded-xl border-l-4 border-indigo-400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-2xl mr-3">✅</div>
+                        <h3 class="text-lg font-bold">Cross-platform Support</h3>
+                    </div>
+                    <p class="text-indigo-100">Compatible with Windows, Linux, and mobile camera systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Enhancements Section -->
+    <section id="future" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">Future Enhancements</span>
+                </h2>
+                <p class="text-xl text-gray-300">Roadmap for advanced features and capabilities</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-gradient-to-br from-pink-800 to-rose-700 p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-pink-300">Multi-camera Integration</h3>
+                    <p class="text-gray-300">Seamless monitoring across multiple camera feeds for large spaces</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-purple-800 to-indigo-700 p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-purple-300">Heatmap Visualization</h3>
+                    <p class="text-gray-300">Advanced visual crowd density mapping and hotspot identification</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-red-800 to-pink-700 p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-red-300">Smart Alerts</h3>
+                    <p class="text-gray-300">Intelligent notifications and alerts for overcrowding events</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-green-800 to-teal-700 p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-green-300">IoT Integration</h3>
+                    <p class="text-gray-300">Sensor fusion with IoT devices for comprehensive safety automation</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-yellow-800 to-orange-700 p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-300">Cloud Deployment</h3>
+                    <p class="text-gray-300">Scalable cloud infrastructure for city-wide monitoring systems</p>
+                </div>
+                <div class="card-hover bg-gradient-to-br from-indigo-800 to-blue-700 p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-3 text-indigo-300">Predictive Analytics</h3>
+                    <p class="text-gray-300">AI-powered crowd behavior prediction and trend analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Real-Time Crowd Density Estimation System</h3>
+                <p class="text-gray-400 mb-6">Advanced AI-powered crowd monitoring for safer, smarter cities</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <button class="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg transition duration-300">📚 Documentation</button>
+                    <button class="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg transition duration-300">💻 GitHub Repository</button>
+                    <button class="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-lg transition duration-300">📧 Support</button>
+                </div>
+                <div class="border-t border-gray-800 pt-8 text-gray-500">
+                    <p>&copy; 2024 Real-Time Crowd Density Estimation System. Powered by AI & Computer Vision.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link external JS -->
+    <script src="script.js"></script>
+</body>
+</html>

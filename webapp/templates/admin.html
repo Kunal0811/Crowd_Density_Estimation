@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+    <div class="max-w-7xl mx-auto p-6">
+        <div class="flex justify-center">
+            <h1 class="text-4xl font-bold mb-6">Admin Dashboard</h1>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Live Video Feed -->
+            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold mb-4">Live Feed</h2>
+                <img src="{{ url_for('video_feed') }}" class="rounded-lg w-full" alt="Live Feed">
+                <h3 id="count">Count</h3>
+                <h3 id="density">Density</h3>
+            </div>
+
+            <!-- Stats and Live Graph -->
+            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold mb-4">Crowd Density</h2>
+                <div class="mb-4">
+                    <p class="text-lg">Current Count: <span id="count">0</span></p>
+                    <p class="text-lg">Current Density: <span id="density">0</span> p/m²</p>
+                </div>
+                <canvas id="densityChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        async function updateStatus() {
+            try {
+                const response = await fetch("{{ url_for('status') }}");
+                const data = await response.json();
+                document.getElementById("count").textContent = data.last_count;
+                document.getElementById("density").textContent = data.last_density.toFixed(2);
+            } catch (err) {
+                console.error("Failed to fetch status:", err);
+            }
+        }
+        // Refresh every 2 seconds
+        setInterval(updateStatus, 2000);
+        updateStatus();
+
+        const ctx = document.getElementById('densityChart').getContext('2d');
+
+        const data = {
+            labels: [], // timestamps
+            datasets: [
+                {
+                    label: 'Crowd Density',
+                    data: [],
+                    fill: true,
+                    backgroundColor: 'rgba(59, 130, 246, 0.3)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    tension: 0.3
+                },
+                {
+                    label: 'People Count',
+                    data: [],
+                    fill: false,
+                    borderColor: 'rgba(34, 197, 94, 1)',
+                    tension: 0.3
+                }
+            ]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                scales: {
+                    x: { title: { display: true, text: 'Time' } },
+                    y: { title: { display: true, text: 'Value' }, beginAtZero: true }
+                }
+            }
+        };
+
+        const densityChart = new Chart(ctx, config);
+
+        function updateStats() {
+            fetch('/status')
+                .then(res => res.json())
+                .then(stat => {
+                    const now = new Date().toLocaleTimeString();
+
+                    document.getElementById('count').textContent = stat.last_count;
+                    document.getElementById('density').textContent = stat.last_density.toFixed(2);
+
+                    data.labels.push(now);
+                    data.datasets[0].data.push(stat.last_density);
+                    data.datasets[1].data.push(stat.last_count);
+
+                    // Keep only last 20 points
+                    if (data.labels.length > 20) {
+                        data.labels.shift();
+                        data.datasets[0].data.shift();
+                        data.datasets[1].data.shift();
+                    }
+
+                    densityChart.update();
+                })
+                .catch(err => console.error(err));
+        }
+
+        setInterval(updateStats, 2000); // fetch every 2 sec
+    </script>
+
+</body>
+</html>

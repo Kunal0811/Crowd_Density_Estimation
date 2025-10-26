@@ -1,0 +1,55 @@
+/* General Styles */
+body { box-sizing: border-box; }
+
+/* Hero Gradient */
+.hero-gradient { 
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 25%, #7c2d12 75%, #dc2626 100%);
+}
+
+/* Card hover effect */
+.card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+
+/* Floating animation */
+.floating-animation { animation: float 6s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+
+/* Pulse Dot */
+.pulse-dot { animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+/* Slide In Animations */
+.slide-in-left { animation: slideInLeft 0.8s ease-out; }
+@keyframes slideInLeft { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+
+.slide-in-right { animation: slideInRight 0.8s ease-out; }
+@keyframes slideInRight { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+
+/* Glass Effect Navbar */
+.glass-effect {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Buttons */
+.btn-primary { 
+    background: linear-gradient(to right, #f59e0b, #f97316); 
+    color: black; 
+    padding: 1rem 2rem; 
+    border-radius: 9999px; 
+    font-weight: bold; 
+    transition: all 0.3s; 
+}
+.btn-primary:hover { transform: scale(1.05); }
+
+.btn-secondary { 
+    border: 2px solid white; 
+    color: white; 
+    padding: 1rem 2rem; 
+    border-radius: 9999px; 
+    font-weight: bold; 
+    transition: all 0.3s; 
+}
+.btn-secondary:hover { background: white; color: gray; }

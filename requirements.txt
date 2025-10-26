@@ -1,0 +1,12 @@
+flask
+opencv-python
+opencv-contrib-python
+numpy
+pandas
+pushbullet.py
+requests
+websocket-client
+python-magic
+torch
+torchvision
+torchaudio
