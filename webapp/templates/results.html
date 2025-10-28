@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Add some specific styles for the results page */
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .result-container {
+            max-width: 900px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Processing Complete</h1>
+    
+    <div class="result-container">
+        {% if filename.lower().endswith(('.mp4', '.avi', '.mov', '.mkv')) %}
+            <video width="100%" controls autoplay muted>
+                <source src="{{ url_for('static', filename=filename) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% else %}
+            <img src="{{ url_for('static', filename=filename) }}" alt="Processed Image">
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('index') }}" class="btn">Process Another File</a>
+</body>
+</html>

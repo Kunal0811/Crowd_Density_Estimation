@@ -53,3 +53,4 @@ body { box-sizing: border-box; }
     transition: all 0.3s; 
 }
 .btn-secondary:hover { background: white; color: gray; }
+
